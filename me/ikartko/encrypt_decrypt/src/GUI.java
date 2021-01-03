@@ -8,9 +8,11 @@ import javax.swing.*;
 public class GUI {
     private JFrame f;
     private Encryptor encryptor;
+    private Decryptor decryptor;
 
     public GUI() {
         encryptor = new Encryptor();
+        decryptor = new Decryptor();
         f = new JFrame();
 
         JLabel mode = new JLabel();
@@ -63,9 +65,32 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 encryptor = new Encryptor();
-                String toEncrypt = textField.getText();
-                String resultString = encryptor.encrypt(toEncrypt);
-                resultField.setText(resultString);
+                String encrypted = encryptor.encrypt(textField.getText());
+                resultField.setText(encrypted);
+                System.out.println("Result: " + encrypted);
+
+            }
+            
+        });
+
+        submitToDecrypt.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                decryptor = new Decryptor();
+                String decrypted = "";
+                String[] decryption = textField.getText().split("\\s+");
+
+                for (int i = 0; i < decryption.length; i++) {
+                    String temp = decryption[i];
+                    String temp2 = decryptor.decrypt(temp);
+                    decrypted = decrypted.concat(temp2);
+                }
+
+                resultField.setText(decrypted);
+
+                System.out.println("Result: " + decrypted);
+
             }
             
         });
