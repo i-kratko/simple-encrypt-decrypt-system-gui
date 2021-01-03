@@ -19,9 +19,10 @@ public class GUI {
         mode.setBounds(130, 15, 100, 40);
         mode.setText("Encryption Mode");
 
-        JTextField resultField = new JTextField();
+        JTextArea resultField = new JTextArea();
         resultField.setEditable(false);
         resultField.setBounds(15, 220, 350, 120);
+        resultField.setWrapStyleWord(true);
 
         JTextField textField = new JTextField();
         textField.setBounds(15, 110, 350, 60);
