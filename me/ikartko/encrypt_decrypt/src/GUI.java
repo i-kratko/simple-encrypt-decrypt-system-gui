@@ -2,7 +2,6 @@ package me.ikartko.encrypt_decrypt.src;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 public class GUI {
@@ -22,10 +21,13 @@ public class GUI {
         JTextArea resultField = new JTextArea();
         resultField.setEditable(false);
         resultField.setBounds(15, 220, 350, 120);
-        resultField.setWrapStyleWord(true);
+        resultField.setWrapStyleWord(true); 
+        resultField.setLineWrap(true);
 
-        JTextField textField = new JTextField();
+        JTextArea textField = new JTextArea();
         textField.setBounds(15, 110, 350, 60);
+        textField.setLineWrap(true);
+        
 
         JButton submitToEncrypt = new JButton("Encrypt");
         submitToEncrypt.setBounds(130, 180, 100, 40);
@@ -97,6 +99,7 @@ public class GUI {
         });
 
 
+
         f.add(encryptButton);
         f.add(decryptButton);
         f.add(submitToEncrypt);
@@ -104,10 +107,14 @@ public class GUI {
         f.add(mode);
         f.add(textField);
         f.add(resultField);
-
+        
         f.setSize(400, 500);
+        f.setResizable(false);
         f.setLayout(null);
-        f.setVisible(true);
+        f.setLocationRelativeTo ( null );
+        f.setVisible ( true );
+
+        
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
