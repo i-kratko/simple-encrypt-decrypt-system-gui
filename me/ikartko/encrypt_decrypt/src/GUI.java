@@ -12,9 +12,10 @@ public class GUI {
     private Decryptor decryptor;
 
     public GUI() {
+        String applicationName = "Egiginmga V1.2.0";
         encryptor = new Encryptor();
         decryptor = new Decryptor();
-        f = new JFrame();
+        f = new JFrame(applicationName);
 
         JLabel mode = new JLabel();
         mode.setBounds(132, 15, 100, 40);
