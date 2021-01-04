@@ -2,6 +2,8 @@ package me.ikartko.encrypt_decrypt.src;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.datatransfer.*;
 import javax.swing.*;
 
 public class GUI {
@@ -15,30 +17,33 @@ public class GUI {
         f = new JFrame();
 
         JLabel mode = new JLabel();
-        mode.setBounds(130, 15, 100, 40);
+        mode.setBounds(132, 15, 100, 40);
         mode.setText("Encryption Mode");
 
         JTextArea resultField = new JTextArea();
         resultField.setEditable(false);
-        resultField.setBounds(15, 220, 350, 120);
+        resultField.setBounds(17, 230, 350, 120);
         resultField.setWrapStyleWord(true); 
         resultField.setLineWrap(true);
 
         JTextArea textField = new JTextArea();
-        textField.setBounds(15, 110, 350, 60);
+        textField.setBounds(17, 110, 350, 60);
         textField.setLineWrap(true);
         
 
         JButton submitToEncrypt = new JButton("Encrypt");
-        submitToEncrypt.setBounds(130, 180, 100, 40);
+        submitToEncrypt.setBounds(132, 180, 100, 40);
         submitToEncrypt.setVisible(true);
 
         JButton submitToDecrypt = new JButton("Decrypt");
-        submitToDecrypt.setBounds(130, 180, 100, 40);
+        submitToDecrypt.setBounds(132, 180, 100, 40);
         submitToDecrypt.setVisible(false);
 
+        JButton copyText = new JButton("Copy");
+        copyText.setBounds(132, 370, 100, 40);
+
         JButton encryptButton = new JButton("Encryption");
-        encryptButton.setBounds(65, 50, 100, 40);
+        encryptButton.setBounds(67, 50, 100, 40);
         encryptButton.addActionListener(new ActionListener(){
 
             @Override
@@ -51,7 +56,7 @@ public class GUI {
         });
 
         JButton decryptButton = new JButton("Decryption");
-        decryptButton.setBounds(195, 50, 100, 40);
+        decryptButton.setBounds(197, 50, 100, 40);
         decryptButton.addActionListener(new ActionListener() {
 
             @Override
@@ -98,12 +103,23 @@ public class GUI {
             
         });
 
+        copyText.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringSelection StringSelection = new StringSelection(resultField.getText());
+                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                clipboard.setContents(StringSelection, StringSelection);
+            }
+            
+        });
 
 
         f.add(encryptButton);
         f.add(decryptButton);
         f.add(submitToEncrypt);
         f.add(submitToDecrypt);
+        f.add(copyText);
         f.add(mode);
         f.add(textField);
         f.add(resultField);
