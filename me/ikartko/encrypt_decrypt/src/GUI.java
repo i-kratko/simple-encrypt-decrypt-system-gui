@@ -16,21 +16,24 @@ public class GUI {
         encryptor = new Encryptor();
         decryptor = new Decryptor();
         f = new JFrame(applicationName);
+        f.getContentPane().setBackground(Color.BLACK);
 
         JLabel mode = new JLabel();
         mode.setBounds(132, 15, 100, 40);
         mode.setText("Encryption Mode");
+        mode.setForeground(Color.WHITE);
 
         JTextArea resultField = new JTextArea();
         resultField.setEditable(false);
         resultField.setBounds(17, 230, 350, 120);
         resultField.setWrapStyleWord(true); 
         resultField.setLineWrap(true);
+        resultField.setBackground(Color.GRAY);
 
         JTextArea textField = new JTextArea();
         textField.setBounds(17, 110, 350, 60);
         textField.setLineWrap(true);
-        
+        textField.setBackground(Color.GRAY);
 
         JButton submitToEncrypt = new JButton("Encrypt");
         submitToEncrypt.setBounds(132, 180, 100, 40);
@@ -55,6 +58,7 @@ public class GUI {
             }
 
         });
+        encryptButton.setBackground(Color.WHITE);
 
         JButton decryptButton = new JButton("Decryption");
         decryptButton.setBounds(197, 50, 100, 40);
@@ -68,7 +72,8 @@ public class GUI {
             }
             
         });
-        
+        decryptButton.setBackground(Color.WHITE);
+
         submitToEncrypt.addActionListener(new ActionListener(){
 
             @Override
@@ -81,6 +86,7 @@ public class GUI {
             }
             
         });
+        submitToEncrypt.setBackground(Color.WHITE);
 
         submitToDecrypt.addActionListener(new ActionListener(){
 
@@ -103,6 +109,7 @@ public class GUI {
             }
             
         });
+        submitToDecrypt.setBackground(Color.WHITE);
 
         copyText.addActionListener(new ActionListener(){
 
@@ -114,6 +121,7 @@ public class GUI {
             }
             
         });
+        copyText.setBackground(Color.WHITE);
 
 
         f.add(encryptButton);
